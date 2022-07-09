@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="To do List">
+    <meta name="keywords" content="todo,tasklist,todo-list">
+    <meta name="author" content="Sandeep Sala">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title_block %}To do List{% endblock title_block %}</title>
+    <link rel="icon" href="{% static 'todoApp/img/circle-cropped.png' %}" type="image/icon type">
+    <link rel="stylesheet" href="{% static 'todoApp/css/style.css' %}">
+    <script src="{% static 'todoApp/js/app.js' %}"></script>
+</head>
+<body class="main-div_warapper">
+    <div class="main-div">
+        <div class="main-header">
+            {% block header_content %}
+            {% endblock header_content %}
+        </div>
+        <div class="main-section">
+            {% block main_content %}
+            {% endblock main_content %}
+        </div>
+    </div>
+    <footer class="main-div_footer">Made With ❤️ ~ <b>Sandeep Sala</b></footer>
+</body>
+</html>

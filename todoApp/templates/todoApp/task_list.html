@@ -1,19 +1,53 @@
-<h1>To do list</h1>
-<a href="{% url 'taskCreate' %}">Create Task</a>
-<table>
-    <tr>
-        <th>Task List</th>
-    </tr>
+{% extends 'todoApp/base.html' %}
+
+{% block title_block %}To-do List{% endblock title_block %}
+
+{% block header_content %}
+<div class="profile-header-wrapper">
+    <div class="profile-header">
+        <h3>Hi {{ request.user }},</h3>
+        <div>
+            <a class="clear logout" href="{% url 'taskDeleteAll' %}">&#128465;</a>
+            <a class="logout" href="{% url 'taskLogout' %}">Logout</a>
+        </div>
+    </div>
+    <h1>To-do List</h1>
+    <div class="profile-header">
+        <h2><span>{{count}}</span> task left!</h2>
+        <p>{{today_date}}</p>
+    </div>
+</div>
+{% endblock header_content %}
+
+{% block main_content %}
+<div class="profile-header">
+    <form class="search-form" action="" method="get">
+        <input type="text" name="search-area" id="search-area" value="{{ search_input }}">
+        <input class="search" type="submit" value="&#128269;">
+    </form>
+    <a class="create-task" href="{% url 'taskCreate' %}">Create Task</a>
+</div>
+<section class="to-do-content">
     {% for task in task_list %}
-        <tr>
-            <th>{{ task.title }}</th>
-            <th><a href="{% url 'taskDetail' task.id %}">View</a></th>
-            <th><a href="{% url 'taskUpdate' task.id %}">Edit</a></th>
-            <th><a href="{% url 'taskDelete' task.id %}">Delete</a></th>
-        </tr>
-    {% empty %}
-        <tr>
-            <th>No Task</th>
-        </tr>
+        {% if task.complete %}
+            <div class="to-do-content-cards to-do-content-finish">
+                <a href="{% url 'completeTask' task.id 0 %}" class="to-do-content-card-checkbox to-do-content-card-checkbox-complete">✓</a>
+                <a href="{% url 'taskUpdate' task.id %}" class="to-do-content-cards-info">
+                    <h3 class="to-do-content-card-task">{{ task.title }}</h3>
+                    <p class="time">{{ task.created_on }}</p>
+                </a>
+                <a href="{% url 'taskDelete' task.id %}" class="to-do-content-card-delete-btn">❌</a>
+            </div>
+        {% else %}
+            <div class="to-do-content-cards">
+                <a href="{% url 'completeTask' task.id 1 %}" class="to-do-content-card-checkbox "></a>
+                <a href="{% url 'taskUpdate' task.id %}" class="to-do-content-cards-info">
+                    <h3 class="to-do-content-card-task">{{ task.title }}</h3>
+                    <p class="time">{{ task.created_on }}</p>
+                </a>
+                <a href="{% url 'taskDelete' task.id %}" class="to-do-content-card-delete-btn">❌</a>
+            </div>
+        {% endif %}
     {% endfor %}
-</table>
+</section>
+{% endblock main_content %}

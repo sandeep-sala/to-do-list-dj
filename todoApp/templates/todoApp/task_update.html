@@ -1,0 +1,22 @@
+{% extends 'todoApp/base.html' %}
+
+{% block title_block %}Update Task{% endblock title_block %}
+
+{% block header_content %}
+<div class="profile-header">
+    <h3>&#128077; {{ request.user }},</h3>
+    <div>
+        <a class="logout" href="{% url 'taskList' %}">Back</a>
+    </div>
+</div>
+<h1>Update Task</h1>
+{% endblock header_content %}
+
+{% block main_content %}
+<form class="create-form" method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="submit">
+</form>
+{% endblock main_content %}
+

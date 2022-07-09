@@ -1,0 +1,315 @@
+:root {
+    --black: #322d2dbd;
+    --light-black: #466753;
+    --green: #11998e;
+    --blue: #0000ff;
+    --light-green: #bedad8;
+    --dark-green: #0b1f09b5;
+    --red: #fb6589;
+    --white: #ffffff;
+}
+
+*, *:before, *:after {
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--black);
+}
+
+.main-div_warapper {
+    background: var(--green);
+    height: 96vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.main-div {
+    width: 550px;
+    max-width: 80%;
+    max-height: 480px;
+    background: var(--white);
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 3px var(--light-black);
+}
+
+.helptext {
+    display: block;
+    font-size: x-small;
+    font-style: italic;
+}
+
+.main-header {
+    background: var(--green);
+    height: auto;
+    min-height: 100px;
+    color: var(--white);
+    box-sizing: border-box;
+    padding: 0px 15px 0px 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.main-section {
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-section form.register p, div.main-section > form.create-form p {
+    padding: 5px 0px;
+    box-sizing: border-box;
+}
+
+.main-section > p {
+    font-size: smaller;
+    font-style: italic;
+}
+
+div.main-section > p > a {
+    background: var(--green);
+    padding: 5px 12px;
+    color: var(--white);
+    border: none;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+div.main-section form.register input[type=submit], .search, .create-task, div.main-section > form.create-form input[type=submit] {
+    background: var(--green);
+    padding: 10px 35px;
+    color: var(--white);
+    border: none;
+    font-weight: bold;
+    border-radius: 10px;
+    float: right;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logout {
+    background: var(--red);
+    padding: 5px 10px;
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.clear {
+    background: var(--blue);
+}
+
+#search-area {
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid var(--green);
+    width: 23em;
+    border-radius: 10px 0px 0px 10px;
+    outline: none;
+}
+
+.search {
+    padding: 8px 14px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.create-task {
+    padding: 8px 35px;
+}
+
+div.main-section > form.register > ul {
+    font-size: x-small;
+}
+
+div.main-section > form.register label, div.main-section > form.create-form label {
+    color: var(--green);
+    font-weight: bold;
+}
+
+div.main-section > form.create-form label {
+    display: block;
+}
+
+div.main-section > form.create-form input, div.main-section > form.create-form textarea {
+    width: 100%;
+}
+
+div.main-section > form.create-form #id_complete {
+    display: inline-block;
+    width: auto;
+}
+
+div.main-section > form.register input, div.main-section > form.create-form input, div.main-section > form.create-form textarea {
+    border: 1px solid var(--green);
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 10px;
+    background: var(--green);
+    outline: none;
+    color: var(--white);
+}
+
+div.main-section > form.create-form textarea {
+    max-height: 82px;
+    overflow-y: auto;
+    resize: none;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
+}
+
+.to-do-content {
+    margin-top: 1em;
+    overflow-y: auto;
+    max-height: 15em;
+}
+
+.to-do-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.to-do-content::-webkit-scrollbar-button {
+    height: 5px;
+}
+
+.to-do-content::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 2rem;
+}
+
+.to-do-content-cards .to-do-content-cards-info .time {
+    opacity: 0.5;
+    font-size: 0.8rem;
+    text-align: inherit;
+}
+
+.to-do-content-cards {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px 10px 5px;
+    border-bottom: 1px solid #d8e8de;
+}
+
+.to-do-content-cards-info {
+    overflow-x: hidden;
+    display: block;
+}
+
+.to-do-content-card-checkbox {
+    width: 25px;
+    text-align: center;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+    color: var(--green);
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.to-do-content-card-checkbox-complete {
+    background: var(--green);
+    color: var(--white);
+}
+
+.to-do-content-cards-info .to-do-content-card-task {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.to-do-content-cards.to-do-content-finish .to-do-content-cards-info {
+    opacity: 0.5;
+    display: block;
+}
+
+.to-do-content-cards.to-do-content-finish .to-do-content-cards-info .to-do-content-card-task {
+    text-decoration: line-through;
+}
+
+.to-do-content-cards .to-do-content-card-delete-btn {
+    visibility: hidden;
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--red);
+    cursor: pointer;
+    text-align: center;
+}
+
+.to-do-content-cards:hover {
+    background: var(--light-green);
+}
+
+.to-do-content-cards:hover .to-do-content-card-delete-btn {
+    visibility: visible;
+}
+
+div.main-header > h1 {
+    text-align: center;
+}
+
+.profile-header-wrapper {
+    padding: 15px 0px 4px;
+}
+
+.profile-header-wrapper h1 {
+    text-align: center;
+}
+
+.profile-header-wrapper h2 > span {
+    color: var(--red);
+}
+
+.profile-header-wrapper > p {
+    text-align: end;
+}
+
+footer.main-div_footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    color: var(--white);
+    font-size: 12px;
+    padding: 3px;
+    background: var(--green);
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px var(--light-black);
+    border-radius: 10px;
+    background-color: var(--white);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px var(--light-black);
+    background-color: var(--green);
+}

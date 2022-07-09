@@ -1,0 +1,16 @@
+{% extends 'todoApp/base.html' %}
+
+{% block title_block %}Register{% endblock title_block %}
+
+{% block header_content %}
+<h1>To-do-list Register</h1>
+{% endblock header_content %}
+
+{% block main_content %}
+<form class="register" method="POST" action="{% url 'taskRegister' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Register">
+</form>
+<p>Already have account? <a href="{% url 'taskLogin' %}">Login</a></p>
+{% endblock main_content %}
